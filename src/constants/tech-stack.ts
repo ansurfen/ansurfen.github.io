@@ -14,6 +14,7 @@ import {
   Grafana,
   VueJs,
   Astro,
+  HuggingFace,
 } from "developer-icons";
 
 export const techStack = [
@@ -61,9 +62,9 @@ export const techStack = [
     icon: VueJs,
   },
   {
-    title: "Astro.js",
-    href: "https://astro.build/",
-    icon: Astro,
+    title: "Hugging Face",
+    href: "https://huggingface.co/",
+    icon: HuggingFace,
   },
   // {
   //   title: "React",

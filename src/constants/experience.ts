@@ -93,27 +93,20 @@ Due to length limitations, please visit my article [《Past, Present, Future》]
         ]
     },
     {
-        "title": "Internship",
-        "positions": [
+        title: "Internship / First Job",
+        positions: [
             {
-                "subtitle": "NodeJS Backend Development",
-                "year": "03.2025 - Present",
-                "description": `
-- ♦ Implemented declarative TypeScript definition to API documentation conversion using TypeScript AST and JsonSchema CLI toolchain, with automatic synchronization to API management platform.
-- ♦ Maintained daily operations of DevOps platform, including template additions and task priority implementation.
-- ♦ Refactored original DevOps platform using Dagger to implement CI/CD pipelines.
-- ♦ Integrated Alibaba Cloud Log Service, encapsulating its SDK calls into ORM-like invocation patterns.
-- ♦ Responsible for routine maintenance of game backend services, including integrations with OPPO Mini Game login and Qiniu Cloud file upload.
+                subtitle: "Full Stack Developer",
+                year: "03.2025 - Present",
+                description: `
+- ♦ Developed and maintained mini-game server-side services: framework iteration, multi-channel login, and APIs for clients and operations backends.
+- ♦ Maintained a TypeScript-based in-house CI/CD platform with automated builds, deployments, and hook triggers.
+- ♦ Built an AIGC art batch generation and image-selection delivery system for mini-game production, with keyword/theme-driven text-to-image, async scheduling, WebSocket progress sync, retries, rate limiting, and containerized deployment.
+- ♦ Contributed to a GitLab Merge Request AI code review service: webhook integration, diff chunk review, result write-back, and notification distribution.
+- ♦ Developed complex admin dashboards for operations management, ROI estimation, and business management, including drag-and-drop task assignment and OKR alignment tree visualizations.
+- ♦ Designed and built an intelligent assistant for the task management system with RAG retrieval, OA integration for auto task creation/assignment, and department lookup.
                 `,
-                "tags": ["NodeJS", "TypeScript", "koa", "express", "sequelize", "mysql", "mongo", "redis", "jaeger", "devops", "CI/CD", "dagger"]
-            },
-            {
-                "subtitle": "Vue Frontend Development",
-                "year": "03.2025 - Present",
-                "description": `
-- ♦ Routine maintenance of DevOps platform
-                `,
-                "tags": ["vue", "vue-router", "vite", "TypeScript", "devops", "element-plus"]
+                tags: ["Full Stack", "NodeJS", "TypeScript", "Vue", "koa", "express", "mysql", "mongo", "redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "element-plus", "Docker"]
             }
         ]
     }
@@ -163,27 +156,20 @@ export const zhCN: Experience[] = [
         ]
     },
     {
-        title: "实习",
+        title: "实习 / 第一份工作",
         positions: [
             {
-                subtitle: "NodeJS 后端开发",
+                subtitle: "全栈开发工程师",
                 year: "03.2025 - 至今",
                 description: `
-- ♦ 基于 TypeScript 语法树以及 JsonSchema 命令行工具链实现声明式 TypeScript 定义转接口文档，并自动同步到 API 管理平台。
-- ♦ 维护 DevOps 平台日常工作，包括添加模板，实现任务优先级。
-- ♦ 使用 Dagger 重构原 DevOps 平台实现 CI/CD 流水线。
-- ♦ 对接过阿里云日志服务，将其 SDK 调用方式封装成和 ORM 一样同样的方式调用。
-- ♦ 负责游戏后台日常维护，对接过 OPPO 小游戏登录，七牛云文件上传等。
+- ♦ 参与小游戏服务端开发与维护，负责框架迭代、多渠道登录、客户端与运营后台接口编写等。
+- ♦ 参与基于 TypeScript 自研 CI/CD 平台维护，支持自动构建、部署与钩子触发。
+- ♦ 面向小游戏研发的 AIGC 美术批量出图与选片交付系统，支持关键词/主题驱动文生图，并实现异步调度、WebSocket 进度同步、重试、限流与容器化部署。
+- ♦ 参与 GitLab Merge Request AI Code Review 服务开发，实现 Webhook 接入、Diff 分片评审、结果回写与通知分发。
+- ♦ 负责经营管理、ROI 预估、业务管理等复杂中后台页面开发，涉及拖拽任务分配、OKR 系统对齐树等可视化场景。
+- ♦ 负责任务管理系统的智能助手设计与开发，支持 RAG 知识检索、对接 OA 接口自动创建/分配任务、查询部门情况等功能。
                 `,
-                tags: ["NodeJS", "TypeScript", "koa", "express", "sequelize", "mysql", "mongo", "redis", "jaeger", "devops", "CI/CD", "dagger"]
-            },
-            {
-                subtitle: "Vue 前端开发",
-                year: "03.2025 - 至今",
-                description: `
-- ♦ DevOps 平台日常维护
-                `,
-                tags: ["vue", "vue-router", "vite", "TypeScript", "devops", "element-plus"]
+                tags: ["全栈开发", "NodeJS", "TypeScript", "Vue", "koa", "express", "mysql", "mongo", "redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "element-plus", "Docker"]
             }
         ]
     }
@@ -231,25 +217,19 @@ const zhTW: Experience[] = [
         ]
     },
     {
-        title: "實習",
+        title: "實習 / 第一份工作",
         positions: [
             {
-                subtitle: "NodeJS 後端開發",
+                subtitle: "全棧開發工程師",
                 year: "03.2025 - 至今",
                 description: `
-- ♦ 基於 TypeScript 語法樹及 JsonSchema 命令列工具鏈實現宣告式 TypeScript 定義轉接口文件，並自動同步至 API 管理平台。
-- ♦ 維護 DevOps 平台日常工作，包括新增模板、實現任務優先級。
-- ♦ 使用 Dagger 重構原 DevOps 平台實現 CI/CD 流水線。
-- ♦ 對接過阿里雲日誌服務，將其 SDK 呼叫方式封裝成類似 ORM 的形式呼叫。
-- ♦ 負責遊戲後台日常維護，對接過 OPPO 小遊戲登入、七牛雲文件上傳等。`,
-                tags: ["NodeJS", "TypeScript", "koa", "express", "sequelize", "mysql", "mongo", "redis", "jaeger", "devops", "CI/CD", "dagger"]
-            },
-            {
-                subtitle: "Vue 前端開發",
-                year: "03.2025 - 至今",
-                description: `
-- ♦ DevOps 平台日常維護`,
-                tags: ["vue", "vue-router", "vite", "TypeScript", "devops", "element-plus"]
+- ♦ 參與小遊戲服務端開發與維護，負責框架迭代、多渠道登入、客戶端與營運後台介面編寫等。
+- ♦ 參與基於 TypeScript 自研 CI/CD 平台維護，支援自動建置、部署與鉤子觸發。
+- ♦ 面向小遊戲研發的 AIGC 美術批量出圖與選片交付系統，支援關鍵詞/主題驅動文生圖，並實現非同步調度、WebSocket 進度同步、重試、限流與容器化部署。
+- ♦ 參與 GitLab Merge Request AI Code Review 服務開發，實現 Webhook 接入、Diff 分片評審、結果回寫與通知分發。
+- ♦ 負責經營管理、ROI 預估、業務管理等複雜中後台頁面開發，涉及拖拽任務分配、OKR 系統對齊樹等可視化場景。
+- ♦ 負責任務管理系統的智能助手設計與開發，支援 RAG 知識檢索、對接 OA 介面自動建立/分配任務、查詢部門情況等功能。`,
+                tags: ["全棧開發", "NodeJS", "TypeScript", "Vue", "koa", "express", "mysql", "mongo", "redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "element-plus", "Docker"]
             }
         ]
     }
@@ -297,27 +277,20 @@ export const jaJP: Experience[] = [
         ]
     },
     {
-        title: "インターンシップ",
+        title: "インターン / 初めての仕事",
         positions: [
             {
-                subtitle: "NodeJS バックエンド開発",
+                subtitle: "フルスタック開発エンジニア",
                 year: "03.2025 - 現在",
                 description: `
-  - ♦ TypeScriptの構文木とJsonSchemaを利用し、コマンドラインツールを作成。宣言的なTypeScript定義からAPIドキュメントを生成し、API管理プラットフォームに自動同期。
-  - ♦ DevOpsプラットフォームの日常的な保守業務（テンプレート追加、タスク優先度管理など）を担当。
-  - ♦ Daggerを用いて既存のDevOpsプラットフォームのCI/CDパイプラインをリファクタリング。
-  - ♦ Alibaba Cloudのログサービスを接続し、ORMのような呼び出し方ができるSDKラッパーを実装。
-  - ♦ ゲームバックエンドの保守、OPPOミニゲームログインや七牛クラウドのファイルアップロード対応などを担当。
+  - ♦ ミニゲームサーバーサイドの開発・保守に参画。フレームワークの改善、マルチチャネルログイン、クライアントおよび運営バックエンド向け API の実装を担当。
+  - ♦ TypeScript ベースの自社 CI/CD プラットフォームの保守に参画。自動ビルド、デプロイ、フックトリガーをサポート。
+  - ♦ ミニゲーム向け AIGC 美術の一括生成・選片納品システムを構築。キーワード/テーマ駆動の文生図、非同期スケジューリング、WebSocket による進捗同期、リトライ、レート制限、コンテナ化デプロイを実装。
+  - ♦ GitLab Merge Request AI Code Review サービスの開発に参画。Webhook 連携、Diff 分割レビュー、結果の書き戻し、通知配信を実装。
+  - ♦ 経営管理、ROI 予測、業務管理などの複雑な管理画面を開発。ドラッグ＆ドロップによるタスク割当、OKR 整合ツリーなどの可視化を担当。
+  - ♦ タスク管理システムのインテリジェントアシスタントを設計・開発。RAG による知識検索、OA 連携によるタスクの自動作成・割当、部門情報の照会などを実装。
           `,
-                tags: ["NodeJS", "TypeScript", "koa", "express", "sequelize", "mysql", "mongo", "redis", "jaeger", "devops", "CI/CD", "dagger"]
-            },
-            {
-                subtitle: "Vue フロントエンド開発",
-                year: "03.2025 - 現在",
-                description: `
-  - ♦ DevOpsプラットフォームの日常保守
-          `,
-                tags: ["vue", "vue-router", "vite", "TypeScript", "devops", "element-plus"]
+                tags: ["フルスタック", "NodeJS", "TypeScript", "Vue", "koa", "express", "mysql", "mongo", "redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "element-plus", "Docker"]
             }
         ]
     }
@@ -364,27 +337,20 @@ export const frFR: Experience[] = [
         ]
     },
     {
-        title: "Stage",
+        title: "Stage / Premier emploi",
         positions: [
             {
-                subtitle: "Développement Backend NodeJS",
+                subtitle: "Développeur Full Stack",
                 year: "03.2025 - Présent",
                 description: `
-  - ♦ Mise en œuvre d'une chaîne d'outils en ligne de commande basée sur l'AST TypeScript et JsonSchema pour convertir de manière déclarative les définitions TypeScript en documentation API et synchroniser automatiquement avec la plateforme de gestion d'API.
-  - ♦ Maintenance quotidienne de la plateforme DevOps, y compris l'ajout de modèles et la mise en œuvre de la priorisation des tâches.
-  - ♦ Refactorisation de la plateforme DevOps d'origine en utilisant Dagger pour implémenter des pipelines CI/CD.
-  - ♦ Intégration du service de journalisation Alibaba Cloud, encapsulant ses appels SDK dans une méthode d'invocation semblable à un ORM.
-  - ♦ Responsable de la maintenance quotidienne du backend du jeu, intégration de la connexion au mini-jeu OPPO, des téléchargements de fichiers Qiniu Cloud, etc.
+  - ♦ Développement et maintenance des services serveur de mini-jeux : itération du framework, connexion multi-canal, APIs clients et back-office opérationnel.
+  - ♦ Maintenance d'une plateforme CI/CD interne en TypeScript : builds, déploiements et déclenchement par hooks automatisés.
+  - ♦ Système AIGC de génération d'assets en lot et de sélection d'images pour mini-jeux : text-to-image par mots-clés/thèmes, planification asynchrone, synchronisation WebSocket, nouvelles tentatives, limitation de débit et déploiement conteneurisé.
+  - ♦ Service AI Code Review pour les Merge Requests GitLab : webhooks, revue par fragments de diff, écriture des résultats et distribution des notifications.
+  - ♦ Tableaux de bord admin complexes (gestion opérationnelle, estimation ROI, gestion métier) : attribution de tâches par glisser-déposer, arbres d'alignement OKR, etc.
+  - ♦ Assistant intelligent pour le système de gestion des tâches : RAG, intégration OA pour création/attribution automatique, consultation des départements.
           `,
-                tags: ["NodeJS", "TypeScript", "Koa", "Express", "Sequelize", "MySQL", "MongoDB", "Redis", "Jaeger", "DevOps", "CI/CD", "Dagger"]
-            },
-            {
-                subtitle: "Développement Frontend Vue",
-                year: "03.2025 - Présent",
-                description: `
-  - ♦ Maintenance quotidienne de la plateforme DevOps
-          `,
-                tags: ["Vue", "Vue Router", "Vite", "TypeScript", "DevOps", "Element Plus"]
+                tags: ["Full Stack", "NodeJS", "TypeScript", "Vue", "Koa", "Express", "MySQL", "MongoDB", "Redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "Element Plus", "Docker"]
             }
         ]
     }
@@ -432,27 +398,20 @@ export const esES: Experience[] = [
         ]
     },
     {
-        title: "Pasantía",
+        title: "Pasantía / Primer trabajo",
         positions: [
             {
-                subtitle: "Desarrollo Backend NodeJS",
+                subtitle: "Desarrollador Full Stack",
                 year: "03.2025 - Presente",
                 description: `
-  - ♦ Implementación de una cadena de herramientas de línea de comandos basada en AST de TypeScript y JsonSchema para convertir de manera declarativa definiciones de TypeScript en documentación de API y sincronizar automáticamente con la plataforma de gestión de API.
-  - ♦ Mantenimiento diario de la plataforma DevOps, incluyendo la adición de plantillas y la implementación de priorización de tareas.
-  - ♦ Refactorización de la plataforma DevOps original utilizando Dagger para implementar pipelines CI/CD.
-  - ♦ Integración del servicio de registros de Alibaba Cloud, encapsulando sus llamadas SDK en un método de invocación similar a un ORM.
-  - ♦ Responsable del mantenimiento diario del backend del juego, integración del inicio de sesión del mini-juego OPPO, cargas de archivos en Qiniu Cloud, etc.
+  - ♦ Desarrollo y mantenimiento de servicios de mini-juegos: iteración del framework, inicio de sesión multicanal y APIs para clientes y back-office operativo.
+  - ♦ Mantenimiento de plataforma CI/CD propia en TypeScript con builds, despliegues y disparadores por hooks automatizados.
+  - ♦ Sistema AIGC de generación masiva de arte y entrega de selección de imágenes: text-to-image por palabras clave/tema, programación asíncrona, sincronización WebSocket, reintentos, limitación de tasa y despliegue en contenedores.
+  - ♦ Servicio AI Code Review para Merge Requests de GitLab: webhooks, revisión por fragmentos de diff, escritura de resultados y notificaciones.
+  - ♦ Paneles admin complejos (gestión operativa, estimación ROI, gestión de negocio): asignación de tareas por arrastre, árboles de alineación OKR, etc.
+  - ♦ Asistente inteligente del sistema de tareas: RAG, integración OA para creación/asignación automática y consulta de departamentos.
           `,
-                tags: ["NodeJS", "TypeScript", "Koa", "Express", "Sequelize", "MySQL", "MongoDB", "Redis", "Jaeger", "DevOps", "CI/CD", "Dagger"]
-            },
-            {
-                subtitle: "Desarrollo Frontend Vue",
-                year: "03.2025 - Presente",
-                description: `
-  - ♦ Mantenimiento diario de la plataforma DevOps
-          `,
-                tags: ["Vue", "Vue Router", "Vite", "TypeScript", "DevOps", "Element Plus"]
+                tags: ["Full Stack", "NodeJS", "TypeScript", "Vue", "Koa", "Express", "MySQL", "MongoDB", "Redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "Element Plus", "Docker"]
             }
         ]
     }
@@ -501,25 +460,19 @@ export const ptPT: Experience[] = [
         ]
     },
     {
-        title: "Estágio",
+        title: "Estágio / Primeiro emprego",
         positions: [
             {
-                subtitle: "Desenvolvedor Backend com NodeJS",
+                subtitle: "Desenvolvedor Full Stack",
                 year: "03.2025 - presente",
                 description: `
-  - ♦ Ferramenta CLI baseada em AST do TypeScript e JsonSchema para gerar docs e sincronizar com plataforma de APIs.
-  - ♦ Manutenção de plataforma DevOps, incluindo criação de templates e tarefas com prioridade.
-  - ♦ Refatoração do CI/CD com Dagger.
-  - ♦ Integração com Alibaba Cloud Logs com estilo ORM.
-  - ♦ Manutenção do backend de jogos, integração com login OPPO MiniGames, upload com Qiniu.`,
-                tags: ["NodeJS", "TypeScript", "koa", "express", "sequelize", "mysql", "mongo", "redis", "jaeger", "devops", "CI/CD", "dagger"]
-            },
-            {
-                subtitle: "Desenvolvedor Frontend com Vue",
-                year: "03.2025 - presente",
-                description: `
-  - ♦ Manutenção da plataforma DevOps.`,
-                tags: ["vue", "vue-router", "vite", "TypeScript", "devops", "element-plus"]
+  - ♦ Desenvolvimento e manutenção de serviços de mini-jogos: iteração de framework, login multicanal e APIs para clientes e back-office operacional.
+  - ♦ Manutenção de plataforma CI/CD própria em TypeScript com builds, deploys e gatilhos por hooks automatizados.
+  - ♦ Sistema AIGC de geração em lote de arte e entrega de seleção de imagens: text-to-image por palavras-chave/tema, agendamento assíncrono, sincronização WebSocket, retentativas, rate limiting e deploy em containers.
+  - ♦ Serviço AI Code Review para Merge Requests do GitLab: webhooks, revisão por fragmentos de diff, gravação de resultados e notificações.
+  - ♦ Painéis admin complexos (gestão operacional, estimativa de ROI, gestão de negócios): atribuição de tarefas por arrastar, árvores de alinhamento OKR, etc.
+  - ♦ Assistente inteligente do sistema de tarefas: RAG, integração OA para criação/atribuição automática e consulta de departamentos.`,
+                tags: ["Full Stack", "NodeJS", "TypeScript", "Vue", "koa", "express", "mysql", "mongo", "redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "element-plus", "Docker"]
             }
         ]
     }
@@ -567,25 +520,19 @@ export const ru: Experience[] = [
         ]
     },
     {
-        title: "Стажировка",
+        title: "Стажировка / Первая работа",
         positions: [
             {
-                subtitle: "NodeJS Бэкенд-разработчик",
+                subtitle: "Full Stack разработчик",
                 year: "03.2025 - по настоящее время",
                 description: `
-  - ♦ CLI-инструмент на основе AST TypeScript и JsonSchema для генерации документации и синхронизации с платформой API.
-  - ♦ Поддержка DevOps-платформы: шаблоны, приоритет задач.
-  - ♦ Переписал CI/CD на Dagger.
-  - ♦ Интеграция с Alibaba Cloud Logs в стиле ORM.
-  - ♦ Поддержка игрового бэкенда, логин OPPO, загрузка файлов на Qiniu.`,
-                tags: ["NodeJS", "TypeScript", "koa", "express", "sequelize", "mysql", "mongo", "redis", "jaeger", "devops", "CI/CD", "dagger"]
-            },
-            {
-                subtitle: "Frontend-разработчик на Vue",
-                year: "03.2025 - по настоящее время",
-                description: `
-  - ♦ Поддержка платформы DevOps.`,
-                tags: ["vue", "vue-router", "vite", "TypeScript", "devops", "element-plus"]
+  - ♦ Разработка и поддержка серверной части мини-игр: итерации фреймворка, мультиканальный вход, API для клиентов и операционного бэкенда.
+  - ♦ Поддержка собственной CI/CD-платформы на TypeScript: автоматические сборки, деплой и хуки.
+  - ♦ AIGC-система пакетной генерации арта и отбора изображений: text-to-image по ключевым словам/темам, асинхронное планирование, WebSocket-синхронизация, повторы, rate limiting, контейнерный деплой.
+  - ♦ AI Code Review для GitLab Merge Request: webhooks, пофрагментный diff-ревью, запись результатов и уведомления.
+  - ♦ Сложные админ-панели (операционное управление, ROI, бизнес): drag-and-drop задач, деревья OKR и др.
+  - ♦ Умный ассистент системы задач: RAG, интеграция с OA для создания/назначения задач, запросы по отделам.`,
+                tags: ["Full Stack", "NodeJS", "TypeScript", "Vue", "koa", "express", "mysql", "mongo", "redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "element-plus", "Docker"]
             }
         ]
     }
@@ -632,25 +579,19 @@ export const arSA: Experience[] = [
         ]
     },
     {
-        title: "التدريب العملي",
+        title: "التدريب / أول وظيفة",
         positions: [
             {
-                subtitle: "مطور خلفي باستخدام NodeJS",
+                subtitle: "مطور Full Stack",
                 year: "03.2025 - حتى الآن",
                 description: `
-  - ♦ أداة سطر أوامر تعتمد على AST وJsonSchema لتوليد الوثائق ومزامنتها مع منصة API.
-  - ♦ صيانة منصة DevOps، بما في ذلك القوالب وأولوية المهام.
-  - ♦ إعادة بناء خطوط CI/CD باستخدام Dagger.
-  - ♦ دمج خدمات السجلات من Aliyun بأسلوب ORM.
-  - ♦ دعم الواجهة الخلفية للألعاب، تسجيل الدخول عبر OPPO، رفع الملفات إلى Qiniu.`,
-                tags: ["NodeJS", "TypeScript", "koa", "express", "sequelize", "mysql", "mongo", "redis", "jaeger", "devops", "CI/CD", "dagger"]
-            },
-            {
-                subtitle: "مطور واجهة أمامية باستخدام Vue",
-                year: "03.2025 - حتى الآن",
-                description: `
-  - ♦ صيانة منصة DevOps.`,
-                tags: ["vue", "vue-router", "vite", "TypeScript", "devops", "element-plus"]
+  - ♦ تطوير وصيانة خدمات الألعاب المصغرة: تطوير الإطار، تسجيل الدخول متعدد القنوات، وواجهات برمجة للعملاء واللوحة التشغيلية.
+  - ♦ صيانة منصة CI/CD داخلية مبنية على TypeScript مع بناء ونشر تلقائي وتشغيل عبر Webhooks.
+  - ♦ نظام AIGC لتوليد الفنون بالجملة واختيار الصور: نص إلى صورة بالكلمات/الموضوع، جدولة غير متزامنة، مزامنة WebSocket، إعادة المحاولة، تحديد المعدل، ونشر في حاويات.
+  - ♦ خدمة مراجعة كود AI لطلبات دمج GitLab: Webhooks، مراجعة مقطعية للـ Diff، كتابة النتائج والإشعارات.
+  - ♦ لوحات إدارة معقدة (تشغيل، تقدير ROI، أعمال): سحب وإفلات للمهام، أشجار محاذاة OKR، وغيرها.
+  - ♦ مساعد ذكي لنظام المهام: RAG، تكامل OA لإنشاء/تعيين المهام تلقائياً، واستعلام الأقسام.`,
+                tags: ["Full Stack", "NodeJS", "TypeScript", "Vue", "koa", "express", "mysql", "mongo", "redis", "DevOps", "CI/CD", "WebSocket", "AIGC", "RAG", "GitLab", "element-plus", "Docker"]
             }
         ]
     }

@@ -51,8 +51,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       developer-icons:
-        specifier: ^5.3.2
-        version: 5.3.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^7.0.0
+        version: 7.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       eslint:
         specifier: ^9.23.0
         version: 9.23.0(jiti@2.4.2)
@@ -1246,8 +1246,8 @@ packages:
   devalue@5.1.1:
     resolution: {integrity: sha512-maua5KUiapvEwiEAe+XnlZ3Rh0GD+qI1J/nb9vrJc3muPXvcF/8gXYTWF76+5DAqHyDUtOIImEuo0YKE9mshVw==}
 
-  developer-icons@5.3.2:
-    resolution: {integrity: sha512-VWGbkNMFKM6PSG7rMDls7UjUaIMY1kvvCSF9b4BYmz3X27p0TEZj1ED5JqKZM4xn4cs4zncNq1nUiUdjDUNqjQ==}
+  developer-icons@7.0.0:
+    resolution: {integrity: sha512-/QjeYJlcmWKvvp8VSMMi9JLP9rnfTmlOx3h9QbModFzYCNQT2SmCFxynZd7K+qLvJbLsqsPPX/VFCOBzKgwKWg==}
     peerDependencies:
       react: ^18.2.0 || ^19.0.0
       react-dom: ^18.2.0 || ^19.0.0
@@ -3964,7 +3964,7 @@ snapshots:
 
   devalue@5.1.1: {}
 
-  developer-icons@5.3.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  developer-icons@7.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)

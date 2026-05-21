@@ -377,9 +377,7 @@ const enUS: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-At present, I am developing what I think is a major open source project —— [Hulo](https://github.com/hulo-lang/hulo). It is a programming language, but it is still at the WIP stage. If you are interested, you can contact me to study or develop :).
-
-In addition, I translate Minecraft mods in my spare time. 
+Lately I've been deep in exploring AIGC, Agents, and LLM-powered apps. I'm convinced the wave of the AI revolution will sweep through every part of everyday life.
 `,
 } as const;
 
@@ -390,9 +388,7 @@ const zhCN: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-最近, 我正在开发我认为重要的开源项目 —— [Hulo](https://github.com/hulo-lang/hulo)。它是一个编程语言，但仍然处于未完成阶段。如果你感兴趣，你可以联系我一起学习或开发 :)。
-
-另外，我还在空闲时间翻译 Minecraft 模组。
+最近，我沉浸于 AIGC、Agent、LLM 应用开发的探索中。我坚信，AI 革命的浪潮将会席卷生活的方方面面。
 `,
 } as const;
 
@@ -403,9 +399,7 @@ const zhTW: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-最近，我正在開發一個我認為重要的開源專案 —— [Hulo](https://github.com/hulo-lang/hulo)。它是一個程式語言，但目前仍處於未完成階段。如果你有興趣，可以聯繫我一起學習或開發 :)
-
-另外，我也在空閒時間翻譯 Minecraft 模組。
+最近，我沉浸於 AIGC、Agent、LLM 應用開發的探索中。我堅信，AI 革命的浪潮將會席捲生活的方方面面。
 `
 } as const;
 
@@ -416,9 +410,7 @@ const jaJP: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-現在、私は自分が重要だと思っている大規模なオープンソースプロジェクトを開発しています —— [Hulo](https://github.com/hulo-lang/hulo)。これはプログラミング言語ですが、まだ開発中です。興味がある方は、私に連絡して一緒に学びたいと思います :)
-
-また、私は空き時間に Minecraft モッドを翻訳しています。
+最近は AIGC、Agent、LLM アプリ開発の探求にのめり込んでいます。AI 革命の波は、いずれ生活のあらゆる場面に広がっていく——そう確信しています。
     `
 } as const;
 
@@ -429,9 +421,7 @@ const frFR: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-  Dernièrement, je travaille sur un projet open-source qui me tient à cœur — [Hulo](https://github.com/hulo-lang/hulo). C’est un langage de programmation encore en développement. Si tu es intéressé(e), n'hésite pas à me contacter pour apprendre ou développer ensemble :)
-  
-  Je traduis aussi des mods Minecraft pendant mon temps libre.
+  Ces derniers temps, je suis plongé dans l’exploration de l’AIGC, des Agents et des applis LLM. Je suis convaincu que la vague de la révolution IA finira par toucher tous les aspects de la vie quotidienne.
   `,
 } as const;
 
@@ -442,9 +432,7 @@ const esES: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-  Últimamente he estado desarrollando un proyecto de código abierto que considero importante: [Hulo](https://github.com/hulo-lang/hulo). Es un lenguaje de programación que aún está en desarrollo. Si te interesa, puedes contactarme para aprender o desarrollar juntos :)
-  
-  También traduzco mods de Minecraft en mi tiempo libre.
+  Últimamente me he sumergido en explorar AIGC, Agents y aplicaciones con LLM. Estoy convencido de que la ola de la revolución de la IA acabará llegando a todos los rincones de la vida cotidiana.
   `,
 } as const;
 
@@ -455,9 +443,7 @@ const ptPT: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-  Recentemente, estou desenvolvendo um projeto open-source que considero importante — [Hulo](https://github.com/hulo-lang/hulo). É uma linguagem de programação, ainda em fase de desenvolvimento. Se estiver interessado, entre em contato para aprender ou desenvolver comigo :)
-  
-  Também traduzo mods de Minecraft no meu tempo livre.
+  Ultimamente tenho me dedicado à exploração de AIGC, Agents e apps com LLM. Acredito que a onda da revolução da IA vai alcançar todos os aspectos da vida cotidiana.
   `,
 } as const;
 
@@ -468,9 +454,7 @@ const ru: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-  В последнее время я разрабатываю важный для меня open-source проект — [Hulo](https://github.com/hulo-lang/hulo). Это язык программирования, который пока ещё не завершён. Если тебе интересно, присоединяйся — будем учиться и разрабатывать вместе :)
-  
-  В свободное время я также перевожу моды для Minecraft.
+  В последнее время я погружён в исследование AIGC, Agents и LLM-приложений. Уверен, что волна AI-революции рано или поздно охватит все стороны повседневной жизни.
   `,
 } as const;
 
@@ -482,9 +466,7 @@ const arSA: Profile = {
     displayName: "Surfen An",
     email: "",
     about: `
-  مؤخرًا، أعمل على مشروع مفتوح المصدر أعتبره مهمًا — [Hulo](https://github.com/hulo-lang/hulo). إنه لغة برمجة، لا تزال في مراحل التطوير. إذا كنت مهتمًا، لا تتردد في التواصل معي للتعلم أو التطوير معنا :)
-  
-  كما أقوم بترجمة إضافات ماينكرافت في أوقات فراغي.
+  مؤخرًا أغوص في استكشاف AIGC وAgents وتطبيقات LLM. أنا مقتنع بأن موجة ثورة الذكاء الاصطناعي ستصل يومًا ما إلى كل جوانب الحياة اليومية.
   `,
 } as const;
 
