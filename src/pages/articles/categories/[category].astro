@@ -1,23 +1,21 @@
 ---
 import { getCategoryPaths } from "@/lib/articles";
 import CategoryLayout from "@/layouts/category-layout.astro";
+import type { LocalePageProps } from "@/lib/i18n-page-types";
 
 export async function getStaticPaths() {
-  return getCategoryPaths("blog");
+  const paths = await getCategoryPaths("blog");
+
+  return paths.map((path) => ({
+    params: path.params,
+    props: { locale: "en_us" as const },
+  }));
 }
 
-const { category } = Astro.params;
+export type Props = LocalePageProps;
 
-// Page properties
-const title = category;
-const description = `Exploring ${category} insights, lessons, and discoveries from my software engineering journey.`;
+const { locale } = Astro.props;
+const { category } = Astro.params;
 ---
 
-<CategoryLayout
-  category={category}
-  title={title}
-  baseLink="/articles"
-  articlesTitle="Articles"
-  description={description}
-  collectionName="blog"
-/>
+<CategoryLayout locale={locale} category={category!} />

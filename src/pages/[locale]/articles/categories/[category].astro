@@ -1,0 +1,14 @@
+---
+import CategoryLayout from "@/layouts/category-layout.astro";
+import { getLocalizedCategoryPaths } from "@/lib/i18n-routes";
+import type { LocalePageProps } from "@/lib/i18n-page-types";
+
+export const getStaticPaths = getLocalizedCategoryPaths;
+
+export type Props = LocalePageProps;
+
+const { locale } = Astro.props;
+const { category } = Astro.params;
+---
+
+<CategoryLayout locale={locale} category={category!} />

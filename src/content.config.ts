@@ -54,6 +54,6 @@ export const collections = {
   arSABlog: createBlogCollection("./docs/ar_sa/blog"),
   arSAProjects: createProjectCollection("./docs/ar_sa/projects"),
 };
-
 export type BlogCollection = "blog" | "zhCNBlog" | "zhTWBlog" | "jaJPBlog" | "ruBlog" | "esESBlog" | "ptPTBlog" | "frFRBlog" | "arSABlog";
 export type ProjectCollection = "projects" | "zhCNProjects" | "zhTWProjects" | "jaJPProjects" | "ruProjects" | "esESProjects" | "ptPTProjects" | "frFRProjects" | "arSAProjects";
+

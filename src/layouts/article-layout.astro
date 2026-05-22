@@ -26,9 +26,11 @@ interface Props {
   headings: MarkdownHeading[];
   image?: string;
   description: string;
+  isPrivate?: boolean;
 }
 
-const { title, readTime, description, date, headings, image } = Astro.props;
+const { title, readTime, description, date, headings, image, isPrivate } =
+  Astro.props;
 
 const locale = getLocale(Astro.url);
 const navText = getNavLinkes(locale);
@@ -43,6 +45,7 @@ const formattedDate = new Intl.DateTimeFormat(getTimeLocale(locale), {
 ---
 
 <Layout title={`${title}`} ogImage={image} description={description}>
+  {isPrivate && <meta name="robots" content="noindex, nofollow" slot="head" />}
   <Navbar className="top-1" text={navText} />
 
   <main aria-label="Main content" class="min-h-screen">
@@ -83,7 +86,7 @@ const formattedDate = new Intl.DateTimeFormat(getTimeLocale(locale), {
         </BoxContent>
       </Box>
 
-      <Toc title={toc[locale]} headings={headings} />
+      {!isPrivate && <Toc title={toc[locale]} headings={headings} />}
     </div>
   </main>
 

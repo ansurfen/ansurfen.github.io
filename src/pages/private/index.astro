@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/layout.astro";
+import Navbar from "@/components/navbar/index.astro";
+import Footer from "@/components/footer.astro";
+import Pattern from "@/components/ui/pattern.astro";
+import Box from "@/components/box/index.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxContent from "@/components/box/content.astro";
+import VaultArticle from "@/components/vault-article";
+import { getLocale, getNavLinkes } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+import { STANDALONE_VAULT_URL } from "@/lib/private-vault";
+
+const locale = getLocale(Astro.url);
+const navText = getNavLinkes(locale);
+const vaultMessages = getMessages(locale).vault;
+---
+
+<Layout title="Private" description="Encrypted private notes">
+  <meta name="robots" content="noindex, nofollow" slot="head" />
+  <Navbar text={navText} />
+  <main class="mx-auto min-h-screen max-w-3xl" aria-label="Private content">
+    <Pattern className="h-8" />
+    <Box>
+      <BoxHeader>
+        <BoxTitle className="text-2xl !font-black">Private</BoxTitle>
+      </BoxHeader>
+      <BoxContent>
+        <VaultArticle
+          client:load
+          vaultUrl={STANDALONE_VAULT_URL}
+          messages={vaultMessages}
+        />
+      </BoxContent>
+    </Box>
+  </main>
+  <Footer />
+</Layout>

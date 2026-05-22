@@ -1,0 +1,13 @@
+---
+import ProjectsLayout from "@/layouts/projects.astro";
+import { getLocaleStaticPaths } from "@/lib/i18n-routes";
+import type { LocalePageProps } from "@/lib/i18n-page-types";
+
+export const getStaticPaths = getLocaleStaticPaths;
+
+export type Props = LocalePageProps;
+
+const { locale } = Astro.props;
+---
+
+<ProjectsLayout locale={locale} />

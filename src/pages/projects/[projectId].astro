@@ -1,12 +1,41 @@
 ---
-import ProjectDetailLayout from "@/layouts/project-detail.astro";
 import { getProjectPaths } from "@/lib/projects";
+import { getPrivateEntries } from "@/lib/private-manifest";
+import ProjectDetailLayout from "@/layouts/project-detail.astro";
+import type { ProjectSlugPageProps } from "@/lib/i18n-page-types";
 
 export async function getStaticPaths() {
-  return getProjectPaths("projects");
+  const paths = await getProjectPaths("projects");
+
+  const merged: {
+    params: { projectId: string };
+    props: ProjectSlugPageProps;
+  }[] = paths.map(path => ({
+    params: path.params,
+    props: { locale: "en_us" as const },
+  }));
+
+  for (const privateEntry of getPrivateEntries({
+    kind: "projects",
+    locale: "en_us",
+  })) {
+    merged.push({
+      params: { projectId: privateEntry.id },
+      props: { locale: "en_us", privateEntry },
+    });
+  }
+
+  return merged;
 }
 
+export type Props = ProjectSlugPageProps;
+
+const { locale, privateEntry } = Astro.props;
 const { projectId } = Astro.params;
 ---
 
-<ProjectDetailLayout collection="projects" projectId={projectId} />
+<ProjectDetailLayout
+  locale={locale}
+  projectId={projectId!}
+  privateEntry={privateEntry}
+/>

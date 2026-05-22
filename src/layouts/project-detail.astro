@@ -1,34 +1,75 @@
 ---
 import { getCollection } from "astro:content";
 import ProjectLayout from "@/layouts/project-layout.astro";
+import ProjectBody from "@/components/project-body.astro";
 import { render } from "astro:content";
-import type { ProjectCollection } from "@/content.config";
+import type { Locale } from "@/lib/i18n";
+import { getLocaleConfig } from "@/lib/locale-content";
+import {
+  getPrivateProject,
+  isPrivateProjectEntry,
+  type PrivateManifestEntry,
+} from "@/lib/private-manifest";
 
 interface Props {
-  collection: ProjectCollection;
+  locale: Locale;
   projectId: string;
+  privateEntry?: PrivateManifestEntry;
 }
 
-const { collection, projectId } = Astro.props;
+const { locale, projectId, privateEntry: privateEntryProp } = Astro.props;
+const { projectCollection: collection } = getLocaleConfig(locale);
 
-const projects = await getCollection(collection);
-const project = projects.find(p => p.id === projectId);
+const privateProject =
+  privateEntryProp && isPrivateProjectEntry(privateEntryProp)
+    ? privateEntryProp
+    : getPrivateProject(locale, projectId);
 
-if (!project) {
-  return Astro.redirect("/404");
+const isPrivate =
+  privateProject !== undefined && isPrivateProjectEntry(privateProject);
+
+let publicProject: Awaited<
+  ReturnType<typeof getCollection<typeof collection>>
+>[number] | null = null;
+let PublicContent: Awaited<ReturnType<typeof render>>["Content"] | null = null;
+
+if (!isPrivate) {
+  const projects = await getCollection(collection);
+  publicProject = projects.find(p => p.id === projectId) ?? null;
+  if (!publicProject) {
+    return Astro.redirect("/404");
+  }
+  const rendered = await render(publicProject);
+  PublicContent = rendered.Content;
 }
-
-const rendered = await render(project);
 ---
 
-<ProjectLayout
-  title={project.data.name}
-  technologies={project.data.technologies}
-  sourceCode={project.data.sourceCode}
-  preview={project.data.preview}
-  image={project.data.image}
-  description={project.data.description}
->
-  <rendered.Content />
-</ProjectLayout>
-
+{
+  isPrivate && privateProject ? (
+    <ProjectLayout
+      title={privateProject.meta.name}
+      technologies={privateProject.meta.technologies}
+      sourceCode={privateProject.meta.sourceCode}
+      preview={privateProject.meta.preview}
+      image={privateProject.meta.image}
+      description={privateProject.meta.description}
+      isPrivate={true}
+    >
+      <ProjectBody locale={locale} privateEntry={privateProject} />
+    </ProjectLayout>
+  ) : (
+    publicProject &&
+      PublicContent && (
+        <ProjectLayout
+          title={publicProject.data.name}
+          technologies={publicProject.data.technologies}
+          sourceCode={publicProject.data.sourceCode}
+          preview={publicProject.data.preview}
+          image={publicProject.data.image}
+          description={publicProject.data.description}
+        >
+          <PublicContent />
+        </ProjectLayout>
+      )
+  )
+}

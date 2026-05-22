@@ -1,0 +1,14 @@
+---
+import SeriesLayout from "@/layouts/series-layout.astro";
+import { getLocalizedSeriesPaths } from "@/lib/i18n-routes";
+import type { LocalePageProps } from "@/lib/i18n-page-types";
+
+export const getStaticPaths = getLocalizedSeriesPaths;
+
+export type Props = LocalePageProps;
+
+const { locale } = Astro.props;
+const { series } = Astro.params;
+---
+
+<SeriesLayout locale={locale} series={series!} />

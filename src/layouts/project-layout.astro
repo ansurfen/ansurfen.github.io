@@ -27,9 +27,10 @@ interface Props {
   preview?: string;
   image?: string;
   description: string;
+  isPrivate?: boolean;
 }
 
-const { title, technologies, description, preview, sourceCode, image } =
+const { title, technologies, description, preview, sourceCode, image, isPrivate } =
   Astro.props;
 
 const locale = getLocale(Astro.url);
@@ -37,6 +38,7 @@ const navText = getNavLinkes(locale);
 ---
 
 <Layout title={`${title}`} ogImage={image} description={description}>
+  {isPrivate && <meta name="robots" content="noindex, nofollow" slot="head" />}
   <Navbar text={navText} />
 
   <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">

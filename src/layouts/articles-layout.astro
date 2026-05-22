@@ -8,40 +8,35 @@ import BoxContent from "@/components/box/content.astro";
 import LinkTag from "@/components/ui/link-tag.astro";
 import Pagination from "@/components/pagination.astro";
 import PageLayout from "@/layouts/page-layout.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import type { Page } from "astro";
-import type { BlogCollection } from "@/content.config";
+import type { Locale } from "@/lib/i18n";
+import { getLocaleConfig } from "@/lib/locale-content";
+import { getMessages } from "@/lib/messages";
+import {
+  getArticleCategory,
+  getArticleSeries,
+  getMergedSortedArticles,
+  type ListArticle,
+} from "@/lib/list-articles";
 
 interface Props {
-  collection: BlogCollection;
-  title: string;
-  description: string;
-  seriesTitle: string;
-  categoriesTitle: string;
-  articlesTitle: string;
-  basePath: string;
-  page: Page<CollectionEntry<BlogCollection>>;
+  locale: Locale;
+  page: Page<ListArticle>;
 }
 
-const {
-  collection,
-  title,
-  description,
-  seriesTitle,
-  categoriesTitle,
-  articlesTitle,
-  basePath,
-  page,
-} = Astro.props;
+const { locale, page } = Astro.props;
+const { title, description, seriesTitle, categoriesTitle, articlesTitle } =
+  getMessages(locale).articles;
+const { blogCollection: collection, articlesBasePath: basePath } =
+  getLocaleConfig(locale);
 
-const articles = await getCollection(collection);
-const categories = [...new Set(articles.map(article => article.data.category))];
+const merged = await getMergedSortedArticles(collection, locale);
+const categories = [...new Set(merged.map(getArticleCategory))];
 const series = [
   ...new Set(
-    articles
-      .map(article => article.data.series)
-      .filter((series): series is string => series !== undefined)
+    merged
+      .map(getArticleSeries)
+      .filter((name): name is string => name !== undefined),
   ),
 ];
 ---
@@ -106,4 +101,3 @@ const series = [
 
   <Pattern />
 </PageLayout>
-

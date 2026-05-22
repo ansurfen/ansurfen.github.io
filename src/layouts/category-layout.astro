@@ -5,30 +5,30 @@ import Box from "@/components/box/index.astro";
 import BoxTitle from "@/components/box/title.astro";
 import BoxHeader from "@/components/box/header.astro";
 import ArticleItem from "@/components/article-item.astro";
-import type { BlogCollection } from "@/content.config";
-import { getCollection } from "astro:content";
+import type { Locale } from "@/lib/i18n";
+import { getLocaleConfig } from "@/lib/locale-content";
+import { getMessages } from "@/lib/messages";
+import {
+  getArticleCategory,
+  getMergedSortedArticles,
+} from "@/lib/list-articles";
 
 interface Props {
+  locale: Locale;
   category: string;
-  title: string;
-  baseLink: string;
-  articlesTitle: string;
-  description: string;
-  collectionName: BlogCollection;
 }
 
-const {
-  category,
-  title,
-  articlesTitle,
-  baseLink,
-  description,
-  collectionName,
-} = Astro.props;
+const { locale, category } = Astro.props;
+const { articles: articleMessages, categoryDescription } = getMessages(locale);
+const { blogCollection: collectionName, articlesBasePath: baseLink } =
+  getLocaleConfig(locale);
+const title = category;
+const description = categoryDescription(category);
+const { articlesTitle } = articleMessages;
 
-const articles = await getCollection(collectionName);
-const categoryArticles = articles.filter(
-  article => article.data.category === category
+const merged = await getMergedSortedArticles(collectionName, locale);
+const categoryArticles = merged.filter(
+  article => getArticleCategory(article) === category,
 );
 ---
 

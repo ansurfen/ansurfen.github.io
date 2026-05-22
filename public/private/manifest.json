@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "entries": [
+    {
+      "kind": "projects",
+      "locale": "en_us",
+      "id": "personal-profile",
+      "vaultPath": "en_us/projects/personal-profile.md",
+      "vaultFile": "vault/en_us/projects/personal-profile.json",
+      "meta": {
+        "name": "Personal Profile",
+        "description": "My personal profile",
+        "type": "core",
+        "technologies": [
+          "LLM Application Development",
+          "Go",
+          "Flutter",
+          "TypeScript"
+        ]
+      },
+      "draft": false,
+      "listed": true
+    },
+    {
+      "kind": "projects",
+      "locale": "zh_cn",
+      "id": "personal-profile",
+      "vaultPath": "zh_cn/projects/personal-profile.md",
+      "vaultFile": "vault/zh_cn/projects/personal-profile.json",
+      "meta": {
+        "name": "个人简介",
+        "description": "我的个人简介",
+        "type": "core",
+        "technologies": [
+          "LLM 应用开发",
+          "Go",
+          "Flutter",
+          "TypeScript"
+        ]
+      },
+      "draft": false,
+      "listed": true
+    }
+  ]
+}

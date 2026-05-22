@@ -1,19 +1,13 @@
 ---
-import { getArticlePaths } from "@/lib/articles";
 import ArticlesLayout from "@/layouts/articles-layout.astro";
+import { getDefaultArticleListPaths } from "@/lib/i18n-routes";
+import type { ArticlesListPageProps } from "@/lib/i18n-page-types";
 
-export const getStaticPaths = await getArticlePaths("blog");
+export const getStaticPaths = getDefaultArticleListPaths;
 
-const { page } = Astro.props;
+export type Props = ArticlesListPageProps;
+
+const { locale, page } = Astro.props;
 ---
 
-<ArticlesLayout
-  collection="blog"
-  title="Blog sharing"
-  description="Share front-end, back-end, full-stack development and other articles from time to time"
-  seriesTitle="Series"
-  categoriesTitle="Categories"
-  articlesTitle="Articles"
-  basePath="/articles"
-  page={page}
-/>
+<ArticlesLayout locale={locale} page={page} />

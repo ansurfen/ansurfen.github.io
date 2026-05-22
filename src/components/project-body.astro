@@ -1,0 +1,33 @@
+---
+import VaultArticle from "@/components/vault-article";
+import type { Locale } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+import {
+  getPrivateVaultUrl,
+  isPrivateProjectEntry,
+  type PrivateManifestEntry,
+} from "@/lib/private-manifest";
+
+interface Props {
+  locale: Locale;
+  privateEntry?: PrivateManifestEntry;
+}
+
+const { locale, privateEntry } = Astro.props;
+const vaultMessages = getMessages(locale).vault;
+
+const privateProject =
+  privateEntry && isPrivateProjectEntry(privateEntry)
+    ? privateEntry
+    : undefined;
+---
+
+{
+  privateProject && (
+    <VaultArticle
+      client:load
+      vaultUrl={getPrivateVaultUrl(privateProject.vaultFile)}
+      messages={vaultMessages}
+    />
+  )
+}

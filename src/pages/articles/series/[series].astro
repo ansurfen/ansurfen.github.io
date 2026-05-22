@@ -1,23 +1,21 @@
 ---
 import { getSeriesPaths } from "@/lib/articles";
 import SeriesLayout from "@/layouts/series-layout.astro";
+import type { LocalePageProps } from "@/lib/i18n-page-types";
 
 export async function getStaticPaths() {
-  return getSeriesPaths("blog");
+  const paths = await getSeriesPaths("blog");
+
+  return paths.map((path) => ({
+    params: path.params,
+    props: { locale: "en_us" as const },
+  }));
 }
 
-const { series } = Astro.params;
+export type Props = LocalePageProps;
 
-// Page properties
-const title = series;
-const description = `Deep dive into ${series} a curated series from my software engineering journey.`;
+const { locale } = Astro.props;
+const { series } = Astro.params;
 ---
 
-<SeriesLayout
-  series={series}
-  title={title}
-  baseLink="/articles"
-  description={description}
-  collectionName="blog"
-  articlesTitle="Articles"
-/>
+<SeriesLayout locale={locale} series={series!} />

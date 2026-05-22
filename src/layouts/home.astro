@@ -10,17 +10,15 @@ import Experience from "@/components/sections/experience/experience.astro";
 import Statistic from "@/components/statistic.astro";
 import { navLinkes } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
 
 interface Props {
   locale: Locale;
-  title: string;
-  aboutTitle: string;
-  techStackTitle: string;
-  statisticTitle: string;
 }
 
-const { locale, title, aboutTitle, techStackTitle, statisticTitle } =
-  Astro.props;
+const { locale } = Astro.props;
+const { title, aboutTitle, techStackTitle, statisticTitle } =
+  getMessages(locale).home;
 
 const { profile, profileTexts, experiences, experienceTexts } = await import(
   "@/constants"

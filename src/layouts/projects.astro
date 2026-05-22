@@ -4,25 +4,23 @@ import PageLayout from "@/layouts/page-layout.astro";
 import Box from "@/components/box/index.astro";
 import BoxHeader from "@/components/box/header.astro";
 import BoxTitle from "@/components/box/title.astro";
-import { getCollection } from "astro:content";
 import ProjectItem from "@/components/sections/projects/project-item.astro";
 import type { Locale } from "@/lib/i18n";
-import type { ProjectCollection } from "@/content.config";
+import { getLocaleConfig } from "@/lib/locale-content";
+import { getMessages } from "@/lib/messages";
+import { getMergedProjects, getProjectType } from "@/lib/list-projects";
 
 interface Props {
   locale: Locale;
-  title: string;
-  description: string;
-  coreTitle: string;
-  sideTitle: string;
-  collectionName: ProjectCollection;
 }
 
-const { title, description, coreTitle, sideTitle, collectionName } = Astro.props;
+const { locale } = Astro.props;
+const { title, description, coreTitle, sideTitle } = getMessages(locale).projects;
+const { projectCollection: collectionName } = getLocaleConfig(locale);
 
-const projects = await getCollection(collectionName);
-const coreProjects = projects.filter(project => project.data.type === "core");
-const sideProjects = projects.filter(project => project.data.type === "side");
+const projects = await getMergedProjects(collectionName, locale);
+const coreProjects = projects.filter(p => getProjectType(p) === "core");
+const sideProjects = projects.filter(p => getProjectType(p) === "side");
 ---
 
 <PageLayout description={description} title={title}>
@@ -37,15 +35,17 @@ const sideProjects = projects.filter(project => project.data.type === "side");
 
   {
     sideProjects.length > 0 && (
-      <Pattern />
-      <Box>
-        <BoxHeader>
-          <BoxTitle>{sideTitle}</BoxTitle>
-        </BoxHeader>
-        {sideProjects.map(item => <ProjectItem project={item} />)}
-      </Box>
+      <>
+        <Pattern />
+        <Box>
+          <BoxHeader>
+            <BoxTitle>{sideTitle}</BoxTitle>
+          </BoxHeader>
+          {sideProjects.map(item => <ProjectItem project={item} />)}
+        </Box>
+      </>
     )
   }
- 
+
   <Pattern />
-</PageLayout> 
+</PageLayout>

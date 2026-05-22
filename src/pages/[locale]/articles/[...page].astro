@@ -1,0 +1,13 @@
+---
+import ArticlesLayout from "@/layouts/articles-layout.astro";
+import { getLocalizedArticleListPaths } from "@/lib/i18n-routes";
+import type { ArticlesListPageProps } from "@/lib/i18n-page-types";
+
+export const getStaticPaths = getLocalizedArticleListPaths;
+
+export type Props = ArticlesListPageProps;
+
+const { locale, page } = Astro.props;
+---
+
+<ArticlesLayout locale={locale} page={page} />

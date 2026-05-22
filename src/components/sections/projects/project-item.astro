@@ -1,30 +1,61 @@
 ---
-import { ChevronRightIcon, FolderCodeIcon } from "lucide-react";
-
+import { ChevronRightIcon, FolderCodeIcon, Lock } from "lucide-react";
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
-import type { CollectionEntry } from "astro:content";
 import Badge from "@/components/ui/badge.astro";
 import { getLocale, getLocalePathByString } from "@/lib/i18n";
-import type { ProjectCollection } from "@/content.config";
+import type { ListProject } from "@/lib/list-projects";
+import { isPrivateProjectEntry } from "@/lib/private-manifest";
 
 interface Props {
-  project: CollectionEntry<ProjectCollection>;
+  project: ListProject;
 }
+
 const { project } = Astro.props;
 const locale = getLocale(Astro.url);
+
+const isPrivate = project.kind === "private";
+const projectId =
+  project.kind === "public" ? project.entry.id : project.entry.id;
+
+const name =
+  project.kind === "public"
+    ? project.entry.data.name
+    : isPrivateProjectEntry(project.entry)
+      ? project.entry.meta.name
+      : "";
+
+const description =
+  project.kind === "public"
+    ? project.entry.data.description
+    : isPrivateProjectEntry(project.entry)
+      ? project.entry.meta.description
+      : "";
+
+const technologies =
+  project.kind === "public"
+    ? project.entry.data.technologies
+    : isPrivateProjectEntry(project.entry)
+      ? project.entry.meta.technologies
+      : [];
 ---
 
 <a
-  href={getLocalePathByString(locale, `/projects/${project.id}`)}
+  href={getLocalePathByString(locale, `/projects/${projectId}`)}
   class="flex cursor-pointer items-center not-last:border-b"
 >
-  <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
+  {
+    isPrivate ? (
+      <Lock className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
+    ) : (
+      <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
+    )
+  }
   <div class="group flex w-full cursor-pointer flex-col gap-y-3 border-l p-4">
     <div class="flex w-full items-center justify-between text-left select-none">
       <h3
         class="text-lg font-semibold underline-offset-6 group-hover:underline"
       >
-        {project.data.name}
+        {name}
       </h3>
 
       <ChevronRightIcon
@@ -34,15 +65,15 @@ const locale = getLocale(Astro.url);
 
     <MarkdownRenderer
       className="text-xs leading-5 font-medium md:text-sm"
-      content={project.data.description}
+      content={description}
     />
 
     {
-      project.data.technologies.length > 0 && (
+      technologies.length > 0 && (
         <div class="flex flex-wrap gap-1.5">
-          {project.data.technologies.map(technology => {
-            return <Badge>{technology}</Badge>;
-          })}
+          {technologies.map(technology => (
+            <Badge>{technology}</Badge>
+          ))}
         </div>
       )
     }

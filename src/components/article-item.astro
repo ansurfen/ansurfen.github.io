@@ -1,33 +1,59 @@
 ---
-import type { BlogCollection } from "@/content.config";
 import { getLocale, getLocalePathByString, getTimeLocale } from "@/lib/i18n";
-import type { CollectionEntry } from "astro:content";
-import { ChevronRightIcon, NotebookPen } from "lucide-react";
+import type { ListArticle } from "@/lib/list-articles";
+import { getArticleSlug } from "@/lib/list-articles";
+import { isPrivateBlogEntry, toPubDate } from "@/lib/private-manifest";
+import { ChevronRightIcon, Lock, NotebookPen } from "lucide-react";
 import getReadingTime from "reading-time";
 
 interface Props {
-  article: CollectionEntry<BlogCollection>;
+  article: ListArticle;
 }
 
 const { article } = Astro.props;
-
 const locale = getLocale(Astro.url);
+const slug = getArticleSlug(article);
 
-const formattedDate = new Intl.DateTimeFormat(
-  getTimeLocale(locale),
-  {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  }
-).format(article.data.pubDatetime);
+const isPrivate = article.kind === "private";
+const privateBlog =
+  article.kind === "private" && isPrivateBlogEntry(article.entry)
+    ? article.entry
+    : undefined;
+
+const title =
+  article.kind === "public"
+    ? article.entry.data.title
+    : privateBlog!.meta.title;
+const tags =
+  article.kind === "public" ? article.entry.data.tags : privateBlog!.meta.tags;
+const pubDate =
+  article.kind === "public"
+    ? article.entry.data.pubDatetime
+    : toPubDate(privateBlog!.meta.pubDatetime);
+
+const formattedDate = new Intl.DateTimeFormat(getTimeLocale(locale), {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+}).format(pubDate);
+
+const readTimeLabel =
+  article.kind === "public"
+    ? getReadingTime(article.entry.body!).text
+    : "加密";
 ---
 
 <a
-  href={getLocalePathByString(locale, `/articles/${article.id}`)}
+  href={getLocalePathByString(locale, `/articles/${slug}`)}
   class="group flex w-full cursor-pointer items-center"
 >
-  <NotebookPen className="mx-5 size-5 shrink-0 text-muted-foreground" />
+  {
+    isPrivate ? (
+      <Lock className="mx-5 size-5 shrink-0 text-muted-foreground" />
+    ) : (
+      <NotebookPen className="mx-5 size-5 shrink-0 text-muted-foreground" />
+    )
+  }
 
   <div
     class="flex flex-1 flex-col items-start justify-center gap-3 border-l p-4"
@@ -36,7 +62,7 @@ const formattedDate = new Intl.DateTimeFormat(
       <h3
         class="text-lg font-semibold underline-offset-6 group-hover:underline"
       >
-        {article.data.title}
+        {title}
       </h3>
 
       <ChevronRightIcon
@@ -46,13 +72,13 @@ const formattedDate = new Intl.DateTimeFormat(
 
     <ul class="flex flex-wrap items-center justify-start gap-x-4">
       {
-        article.data.tags.map(tag => (
+        tags.map((tag: string) => (
           <li class="text-xs font-semibold">#{tag}</li>
         ))
       }
     </ul>
     <p class="text-xs text-foreground">
-      {formattedDate} | {getReadingTime(article.body!).text}
+      {formattedDate} | {readTimeLabel}
     </p>
   </div>
 </a>

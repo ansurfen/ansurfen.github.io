@@ -1,0 +1,37 @@
+---
+import ArticleLayout from "@/layouts/article-layout.astro";
+import ArticleBody from "@/components/article-body.astro";
+import { getReadingTime } from "@/lib/utils";
+import { getLocalizedArticleSlugPaths } from "@/lib/i18n-routes";
+import {
+  getBlogDisplayFields,
+  isPrivateBlogEntry,
+  toPubDate,
+} from "@/lib/private-manifest";
+import type { ArticleSlugPageProps } from "@/lib/i18n-page-types";
+import type { LocalePageProps } from "@/lib/i18n-page-types";
+
+export const getStaticPaths = getLocalizedArticleSlugPaths;
+
+export type Props = ArticleSlugPageProps & LocalePageProps;
+
+const { post, privateEntry, locale } = Astro.props;
+const blogPrivate =
+  privateEntry && isPrivateBlogEntry(privateEntry) ? privateEntry : undefined;
+const isEncrypted = Boolean(blogPrivate);
+const blogDisplay = blogPrivate ? getBlogDisplayFields(blogPrivate) : null;
+---
+
+<ArticleLayout
+  headings={[]}
+  title={blogDisplay ? blogDisplay.title : post!.data.title}
+  date={blogDisplay ? toPubDate(blogDisplay.pubDatetime) : post!.data.pubDatetime}
+  readTime={
+    isEncrypted ? "加密" : getReadingTime(post!.body!) || "unknown"
+  }
+  image={blogDisplay?.image ?? post?.data.image}
+  description={blogDisplay ? blogDisplay.description : post!.data.description}
+  isPrivate={isEncrypted}
+>
+  <ArticleBody post={post} privateEntry={privateEntry} locale={locale} />
+</ArticleLayout>

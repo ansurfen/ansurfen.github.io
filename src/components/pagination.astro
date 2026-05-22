@@ -1,13 +1,11 @@
 ---
 import type { Page } from "astro";
-import type { CollectionEntry } from "astro:content";
 import LinkButton from "@/components/ui/link-btn.astro";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import type { BlogCollection } from "@/content.config";
 
 export interface Props {
-  page: Page<CollectionEntry<BlogCollection>>;
+  page: Page<unknown>;
 }
 
 const { page } = Astro.props;

@@ -1,36 +1,61 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import ArticleLayout from "@/layouts/article-layout.astro";
-import { render } from "astro:content";
+import ArticleBody from "@/components/article-body.astro";
 import { getReadingTime } from "@/lib/utils";
-
-export interface Props {
-  post: CollectionEntry<"blog">;
-}
+import {
+  getBlogDisplayFields,
+  getPrivateEntries,
+  isPrivateBlogEntry,
+  toPubDate,
+} from "@/lib/private-manifest";
+import type { ArticleSlugPageProps } from "@/lib/i18n-page-types";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
 
-  const postResult = posts.map(post => ({
+  const paths: {
+    params: { slug: string };
+    props: ArticleSlugPageProps;
+  }[] = posts.map(post => ({
     params: { slug: post.id },
     props: { post },
   }));
 
-  return postResult;
+  for (const privateEntry of getPrivateEntries({
+    kind: "blog",
+    locale: "en_us",
+  })) {
+    paths.push({
+      params: { slug: privateEntry.id },
+      props: { privateEntry },
+    });
+  }
+
+  return paths;
 }
 
-const { post } = Astro.props;
+export type Props = ArticleSlugPageProps;
 
-const rendered = await render(post);
+const { post, privateEntry } = Astro.props;
+const blogPrivate =
+  privateEntry && isPrivateBlogEntry(privateEntry) ? privateEntry : undefined;
+const isEncrypted = Boolean(blogPrivate);
+const blogDisplay = blogPrivate ? getBlogDisplayFields(blogPrivate) : null;
 ---
 
 <ArticleLayout
-  headings={rendered.headings}
-  title={post.data.title}
-  date={post.data.pubDatetime}
-  readTime={getReadingTime(post.body!) || "unknown"}
-  image={post.data.image}
-  description={post.data.description}
+  headings={[]}
+  title={blogDisplay ? blogDisplay.title : post!.data.title}
+  date={blogDisplay ? toPubDate(blogDisplay.pubDatetime) : post!.data.pubDatetime}
+  readTime={
+    isEncrypted ? "加密" : getReadingTime(post!.body!) || "unknown"
+  }
+  image={blogDisplay?.image ?? post?.data.image}
+  description={
+    blogDisplay ? blogDisplay.description : post!.data.description
+  }
+  isPrivate={isEncrypted}
 >
-  <rendered.Content />
+  <ArticleBody post={post} privateEntry={privateEntry} locale="en_us" />
 </ArticleLayout>

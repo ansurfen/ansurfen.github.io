@@ -17,6 +17,10 @@ pnpm-debug.log*
 .env
 .env.production
 
+# private vault plaintext (only commit public/private/vault.json)
+private/**/*.md
+!private/README.md
+
 # macOS-specific files
 .DS_Store
 

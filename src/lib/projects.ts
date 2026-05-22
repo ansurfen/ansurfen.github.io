@@ -7,4 +7,4 @@ export async function getProjectPaths(collection: ProjectCollection) {
     params: { projectId: project.id },
     props: { collection },
   }));
-} 
+}

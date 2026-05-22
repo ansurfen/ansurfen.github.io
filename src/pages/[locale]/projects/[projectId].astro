@@ -1,0 +1,18 @@
+---
+import ProjectDetailLayout from "@/layouts/project-detail.astro";
+import { getLocalizedProjectPaths } from "@/lib/i18n-routes";
+import type { ProjectSlugPageProps } from "@/lib/i18n-page-types";
+
+export const getStaticPaths = getLocalizedProjectPaths;
+
+export type Props = ProjectSlugPageProps;
+
+const { locale, privateEntry } = Astro.props;
+const { projectId } = Astro.params;
+---
+
+<ProjectDetailLayout
+  locale={locale}
+  projectId={projectId!}
+  privateEntry={privateEntry}
+/>
