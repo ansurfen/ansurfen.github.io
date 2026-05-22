@@ -21,41 +21,17 @@ import { cn, buttonVariants } from "@/lib/utils";
   <span class="sr-only">Toggle theme</span>
 </button>
 <script is:inline>
-  // Check for theme preference in localStorage or system preference
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-
-  // Set theme on document and in localStorage
-  const setThemeAppearance = theme => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    localStorage.setItem("theme", theme);
-  };
-
-  // Apply the theme immediately to avoid flash
-  const theme = getThemePreference();
-  setThemeAppearance(theme);
-
-  document.addEventListener("astro:page-load", () => {
+  function bindThemeToggle() {
     const toggleButton = document.getElementById("theme-toggle");
+    if (!toggleButton || toggleButton.dataset.themeBound === "true") return;
+    toggleButton.dataset.themeBound = "true";
 
-    // Toggle theme function
-    const toggleMode = () => {
-      const isDarkMode = document.documentElement.classList.contains("dark");
-      const newTheme = isDarkMode ? "light" : "dark";
-      setThemeAppearance(newTheme);
-    };
+    toggleButton.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
 
-    // Add click event listener
-    toggleButton?.addEventListener("click", toggleMode);
-  });
+  bindThemeToggle();
+  document.addEventListener("astro:page-load", bindThemeToggle);
 </script>
