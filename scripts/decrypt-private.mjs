@@ -3,7 +3,7 @@
  *
  * 用法:
  *   pnpm private:decrypt
- *   PASSPHRASE='你的口令' pnpm private:decrypt
+ *   口令：项目根 .env 的 PASSPHRASE，或环境变量，或交互输入
  */
 import {
   existsSync,

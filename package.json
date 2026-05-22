@@ -11,6 +11,7 @@
     "test:watch": "vitest watch",
     "private:encrypt": "node scripts/encrypt-private.mjs",
     "private:decrypt": "node scripts/decrypt-private.mjs",
+    "private:watch": "node scripts/watch-private.mjs",
     "favicon:sync": "node scripts/sync-favicon.mjs",
     "docs:translate-targets": "node scripts/list-translate-targets.mjs",
     "archive": "node scripts/archive.mjs"
@@ -58,6 +59,7 @@
   "devDependencies": {
     "@astrojs/markdown-remark": "^6.3.1",
     "@types/node": "^22.15.21",
+    "chokidar": "^5.0.0",
     "vitest": "^3.1.4"
   }
 }

@@ -66,7 +66,10 @@ draft: false
 ```bash
 pnpm private:encrypt   # 按篇加密 + 生成 manifest
 pnpm private:decrypt   # 从 vault/*.json 恢复到 private/
+pnpm private:watch     # 监听 private/，保存后自动加密
 ```
+
+口令：在项目根 `.env` 写 `PASSPHRASE=你的口令`（已在 `.gitignore`），或临时设环境变量；未配置则命令行提示输入。
 
 提交：`public/private/manifest.json` 与 `public/private/vault/` 目录。
 

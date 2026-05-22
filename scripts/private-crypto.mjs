@@ -5,6 +5,7 @@ import {
   randomBytes,
 } from "node:crypto";
 import { createInterface } from "node:readline";
+import { loadEnv } from "./load-env.mjs";
 
 export const PBKDF2_ITERATIONS = 310_000;
 export const BUNDLE_FORMAT_V1 = "private-bundle-v1";
@@ -12,6 +13,7 @@ export const BUNDLE_FORMAT_V2 = "private-bundle-v2";
 export const ENTRY_FORMAT = "private-entry-v1";
 
 export async function readPassphrase(prompt = "输入口令: ") {
+  loadEnv();
   if (process.env.PASSPHRASE) return process.env.PASSPHRASE;
 
   const rl = createInterface({
