@@ -1,5 +1,6 @@
 ---
-import { getCollection } from "astro:content";
+import type { MarkdownHeading } from "astro";
+import { getCollection, render } from "astro:content";
 import ArticleLayout from "@/layouts/article-layout.astro";
 import ArticleBody from "@/components/article-body.astro";
 import { getReadingTime } from "@/lib/utils";
@@ -42,10 +43,18 @@ const blogPrivate =
   privateEntry && isPrivateBlogEntry(privateEntry) ? privateEntry : undefined;
 const isEncrypted = Boolean(blogPrivate);
 const blogDisplay = blogPrivate ? getBlogDisplayFields(blogPrivate) : null;
+
+let headings: MarkdownHeading[] = [];
+let rendered: Awaited<ReturnType<typeof render>> | undefined;
+
+if (post) {
+  rendered = await render(post);
+  headings = rendered.headings;
+}
 ---
 
 <ArticleLayout
-  headings={[]}
+  headings={headings}
   title={blogDisplay ? blogDisplay.title : post!.data.title}
   date={blogDisplay ? toPubDate(blogDisplay.pubDatetime) : post!.data.pubDatetime}
   readTime={
@@ -57,5 +66,10 @@ const blogDisplay = blogPrivate ? getBlogDisplayFields(blogPrivate) : null;
   }
   isPrivate={isEncrypted}
 >
-  <ArticleBody post={post} privateEntry={privateEntry} locale="en_us" />
+  <ArticleBody
+    post={post}
+    privateEntry={privateEntry}
+    locale="en_us"
+    rendered={rendered}
+  />
 </ArticleLayout>

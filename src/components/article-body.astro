@@ -8,14 +8,17 @@ import { getPrivateVaultUrl, isPrivateBlogEntry } from "@/lib/private-manifest";
 
 interface Props extends ArticleSlugPageProps {
   locale: Locale;
+  rendered?: Awaited<ReturnType<typeof render>>;
 }
 
-const { post, privateEntry, locale } = Astro.props;
+const { post, privateEntry, locale, rendered: renderedProp } = Astro.props;
 const vaultMessages = getMessages(locale).vault;
 
 let Content: Awaited<ReturnType<typeof render>>["Content"] | null = null;
 
-if (post) {
+if (renderedProp) {
+  Content = renderedProp.Content;
+} else if (post) {
   const rendered = await render(post);
   Content = rendered.Content;
 }
