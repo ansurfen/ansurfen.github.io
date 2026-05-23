@@ -8,6 +8,11 @@ import {
 import { getVaultFileHtml } from "@/lib/vault-content";
 import { initCodeCopyButtons } from "@/lib/init-code-copy";
 import type { VaultMessages } from "@/lib/messages";
+import {
+  clearStoredPassphrase,
+  getStoredPassphrase,
+  setStoredPassphrase,
+} from "@/lib/vault-session";
 
 type ViewState = "locked" | "loading" | "unlocked" | "error";
 
@@ -17,9 +22,11 @@ interface VaultArticleProps {
 }
 
 export default function VaultArticle({ vaultUrl, messages }: VaultArticleProps) {
-  const [passphrase, setPassphrase] = useState("");
+  const [passphrase, setPassphrase] = useState(() => getStoredPassphrase() ?? "");
   const [html, setHtml] = useState<string | null>(null);
-  const [viewState, setViewState] = useState<ViewState>("locked");
+  const [viewState, setViewState] = useState<ViewState>(() =>
+    getStoredPassphrase() ? "loading" : "locked",
+  );
   const [error, setError] = useState<string | null>(null);
   const proseRef = useRef<HTMLDivElement>(null);
 
@@ -29,9 +36,8 @@ export default function VaultArticle({ vaultUrl, messages }: VaultArticleProps) 
     }
   }, [html]);
 
-  const handleUnlock = useCallback(
-    async (event: React.FormEvent) => {
-      event.preventDefault();
+  const unlockWithPassphrase = useCallback(
+    async (value: string) => {
       setError(null);
       setViewState("loading");
 
@@ -48,7 +54,7 @@ export default function VaultArticle({ vaultUrl, messages }: VaultArticleProps) 
           throw new Error("Invalid ciphertext format");
         }
 
-        const plain = await decryptVault(payload as EncryptedVault, passphrase);
+        const plain = await decryptVault(payload as EncryptedVault, value);
         const entry = parseEntryPayload(plain);
         const rendered = getVaultFileHtml(entry);
 
@@ -59,20 +65,41 @@ export default function VaultArticle({ vaultUrl, messages }: VaultArticleProps) 
         }
 
         setHtml(rendered);
-        setPassphrase("");
+        setStoredPassphrase(value);
         setViewState("unlocked");
       } catch (err) {
-        const message =
-          err instanceof DOMException && err.name === "OperationError"
-            ? "Wrong passphrase or corrupted ciphertext"
-            : err instanceof Error
-              ? err.message
-              : "Decryption failed";
+        const wrongPassphrase =
+          err instanceof DOMException && err.name === "OperationError";
+
+        if (wrongPassphrase) {
+          clearStoredPassphrase();
+        }
+
+        const message = wrongPassphrase
+          ? "Wrong passphrase or corrupted ciphertext"
+          : err instanceof Error
+            ? err.message
+            : "Decryption failed";
         setError(message);
         setViewState("locked");
       }
     },
-    [passphrase, vaultUrl],
+    [vaultUrl],
+  );
+
+  useEffect(() => {
+    const stored = getStoredPassphrase();
+    if (stored) {
+      void unlockWithPassphrase(stored);
+    }
+  }, [unlockWithPassphrase]);
+
+  const handleUnlock = useCallback(
+    async (event: React.FormEvent) => {
+      event.preventDefault();
+      await unlockWithPassphrase(passphrase);
+    },
+    [passphrase, unlockWithPassphrase],
   );
 
   if (viewState === "unlocked" && html !== null) {
