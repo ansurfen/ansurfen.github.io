@@ -1,0 +1,77 @@
+---
+pubDatetime: 2026-05-21
+title: Développement Agent — une ruée vers l'or artificielle
+description: Regard lucide sur la frénésie Agent : postes dédiés rares, écart entre démo et production, chaos du recrutement et véritable barrière des Coding Agents
+category: Essai
+series: Notes d'apprentissage IA
+tags:
+    - Agent
+    - LLM
+    - RAG
+    - Recherche d'emploi
+    - Analyse du secteur
+    - Coding Agent
+---
+
+## Une « ruée vers l'or » fabriquée
+
+Le développement Agent n'offre pas autant de **postes dédiés** qu'on le croit. Une grande part de l'engouement vient des bootcamps et vendeurs de formations qui fabriquent l'anxiété — d'abord vous effrayer, puis vous pousser vers la piste Agent.
+
+En entreprise, RAG, Agent et LLM reviennent souvent à un ingénieur backend qui étudie un peu, plus un tour de Vibe Coding, pour bricoler une **démo présentable**. La barrière n'est pas aussi haute que le prétendent les cours — mais deux choses diffèrent : **faire une démo** et **mettre en prod quelque chose d'exploitable, auditable et scalable**. Entre les deux : évaluation, permissions, coûts, gouvernance des hallucinations, intégration aux systèmes existants — c'est souvent là que part la majorité des effectifs.
+
+Une formulation plus juste n'est pas « pas de demande Agent », mais une demande qui **descend** : intégrée aux rôles produit, backend, data et sécurité existants, plutôt qu'une énorme « industrie du développement Agent » à part.
+
+## Vérité produit : fourrer des données, pas inventer la demande
+
+Regardez les apps du marché : en surface elles sont « AI », mais en creusant, la plupart **entrent des données et sortent des résultats**.
+
+D'où la difficulté des startups ToC Agent à aller loin — pas que le ToC n'existe pas (rédaction, retouche, compagnie, assistants généralistes ont des précédents), mais **beaucoup de ToC Agent manquent de fossé, de rétention et d'habitude de payer**. Côté entreprise pareil : beaucoup n'ont pas besoin d'Agent, au mieux un RAG et un chatbot — plafond de demande visible.
+
+Le support client intelligent est très procédural : modèle interchangeable, recall multi-voies, modes d'analyse, base de données — un YAML, un projet open source copié, et ça tourne. La standardisation comprimera l'espace « pure intégration, pure copie OSS », mais les entreprises paieront encore pour **on-prem, conformité, SLA de qualité, gouvernance sectorielle des données** — la forme change, ça ne disparaît pas du jour au lendemain.
+
+## L'illusion du haut salaire : outsourcing, exigences empilées, chaos du recrutement
+
+### Les postes eux-mêmes
+
+Les postes Agent semblent bien payés ; décomposés, **beaucoup** sont du packaging en outsourcing (en période difficile, convertir des CDI en prestataires n'est pas rare). Il existe aussi des CDI sur plateformes, inférence, orchestration, sécurité — on ne peut pas réduire toute la piste à l'outsourcing.
+
+Les exigences s'empilent : full-stack plus LLM. Or l'orchestration Agent est très templatisée ; les scénarios de développement continu sont moins nombreux que dans les cours. Coding Agent, planification voyage, médical — sans être déjà dans le secteur ou praticien, une reconversion manque souvent de **expertise métier** et **expérience opérationnelle**. Pour l'entreprise, faire étudier et muter un backend existant coûte souvent moins qu'embaucher quelqu'un qui « ne sait que monter des démos ».
+
+### Un autre chaos côté plateformes d'emploi
+
+Avec le hype Agent vient le **décalage performatif** du recrutement :
+
+- JD en liste de souhaits : RAG, fine-tuning, frameworks Agent, full-stack, gros compte, productivité immédiate — salaire de dev ordinaire ;
+- Vous adaptez le CV, alignez mots-clés et projets, la plateforme affiche « forte correspondance » ;
+- Pas de premier entretien, ou HR : **« pas adapté »** — sans détail, ou des raisons hors JD (ils veulent « produit Agent 0→1 », vous avez écrit déploiement interne ; « compréhension métier », vous venez justement du secteur).
+
+Ce n'est pas seulement « vous n'êtes pas assez bon » — plusieurs structures se superposent :
+
+1. **Le poste n'est peut-être pas réel** : JD pour vivier, headcount, poste déjà pourvu ;
+2. **Le JD est une wishlist, pas un filtre** : auteurs (HR/métier) et sélecteurs (HR/managers) n'ont pas la même logique — l'algo voit les mots, l'humain voit « un des nôtres » ;
+3. **Titres Agent grands, définitions floues** : même « ingénieur Agent » — prompts CS, IDE, pipeline de labelling — CV ok pour A, « pas adapté » chez B ;
+4. **Refus poli en excès d'offre** : « pas adapté » coûte moins que « budget outsourcing seulement ».
+
+Résultat : **candidats formés par les JD à postuler, RH formés par les KPI à filtrer, rituel sur la plateforme, vraies correspondances en baisse.** Même logique que les cours qui fabriquent l'anxiété — bruyant dehors, vous découvrez la porte et la clé une fois dedans — personne ne vous le dit.
+
+## Coding Agent : entrée étroite, ingénierie plus profonde
+
+On dira : le Coding Agent, c'est quand même du savoir informatique ?
+
+Très peu entrent dans Claude Code, Codex, Cursor, Trae en Chine ; le marché veut surtout « utiliser l'IA pour le métier », pas « construire un IDE IA ». Les jouets Vibe Coding sont loin d'un **Coding Agent production** — ingénierie de contexte, édition multi-fichiers, diff, stabilité, politique entreprise — livraison d'équipe, pas « un senior IDE branche une API ».
+
+Embaucher quelqu'un qui ne sait que Vibe Coding avec faibles bases : combler compréhension du code, normes, éviter « générer et commit » — la revue peut être plus lente qu'un senior avec les outils.
+
+**Ceux qui changeront le secteur** : « compétences ingénierie d'origine + nouvelles compétences IA » — systèmes, métier, LLM dans la toolchain — pas des outsiders qui ne connaissent que les frameworks.
+
+## Conclusion
+
+Les Agents **existent**, mais sont **sur-narrés** ; formations, JD et scores de match amplifient « vous êtes en retard, montez à bord ».
+
+Ne vous laissez pas guider par l'anxiété — trois questions :
+
+1. Résous-je un vrai problème ou une coquille « données dedans, résultats dehors » ?
+2. L'entreprise recrute-t-elle pour **intégration terrain** ou **narratif AI-native** ?
+3. « Correspondance » JD/CV = mots-clés seulement, pas poste réellement ouvert ?
+
+Répondre clairement vaut mieux qu'un cours Agent de plus ou cent candidatures « très matchées ».
