@@ -375,7 +375,7 @@ const enUS: Profile = {
     logo: 'ansurfen',
     slogan: 'Do your best, and respect what you cannot yet do.',
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
 Lately I've been deep in exploring AIGC, Agents, and LLM-powered apps. I'm convinced the wave of the AI revolution will sweep through every part of everyday life.
 `,
@@ -386,7 +386,7 @@ const zhCN: Profile = {
     logo: 'ansurfen',
     slogan: '尽你所能，敬你所不能',
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
 最近，我沉浸于 AIGC、Agent、LLM 应用开发的探索中。我坚信，AI 革命的浪潮将会席卷生活的方方面面。
 `,
@@ -397,7 +397,7 @@ const zhTW: Profile = {
     logo: 'ansurfen',
     slogan: '盡你所能，敬你所不能',
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
 最近，我沉浸於 AIGC、Agent、LLM 應用開發的探索中。我堅信，AI 革命的浪潮將會席捲生活的方方面面。
 `
@@ -408,7 +408,7 @@ const jaJP: Profile = {
     logo: 'ansurfen',
     slogan: 'できる限りのことを尽くし、できないことに敬意を払う',
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
 最近は AIGC、Agent、LLM アプリ開発の探求にのめり込んでいます。AI 革命の波は、いずれ生活のあらゆる場面に広がっていく——そう確信しています。
     `
@@ -419,7 +419,7 @@ const frFR: Profile = {
     logo: "ansurfen",
     slogan: "Fais de ton mieux, honore ce que tu ne peux pas",
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
   Ces derniers temps, je suis plongé dans l’exploration de l’AIGC, des Agents et des applis LLM. Je suis convaincu que la vague de la révolution IA finira par toucher tous les aspects de la vie quotidienne.
   `,
@@ -430,7 +430,7 @@ const esES: Profile = {
     logo: "ansurfen",
     slogan: "Haz lo mejor que puedas, honra lo que no puedas",
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
   Últimamente me he sumergido en explorar AIGC, Agents y aplicaciones con LLM. Estoy convencido de que la ola de la revolución de la IA acabará llegando a todos los rincones de la vida cotidiana.
   `,
@@ -441,7 +441,7 @@ const ptPT: Profile = {
     logo: "ansurfen",
     slogan: "Dê o seu melhor, honre o que não pode",
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
   Ultimamente tenho me dedicado à exploração de AIGC, Agents e apps com LLM. Acredito que a onda da revolução da IA vai alcançar todos os aspectos da vida cotidiana.
   `,
@@ -452,7 +452,7 @@ const ru: Profile = {
     logo: "ansurfen",
     slogan: "Делай всё возможное, уважай невозможное",
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
   В последнее время я погружён в исследование AIGC, Agents и LLM-приложений. Уверен, что волна AI-революции рано или поздно охватит все стороны повседневной жизни.
   `,
@@ -464,7 +464,7 @@ const arSA: Profile = {
     logo: "ansurfen",
     slogan: "افعل ما بوسعك، وكن موقرًا لما لا تستطيع",
     displayName: "Surfen An",
-    email: "",
+    email: "axf593161@gmail.com",
     about: `
   مؤخرًا أغوص في استكشاف AIGC وAgents وتطبيقات LLM. أنا مقتنع بأن موجة ثورة الذكاء الاصطناعي ستصل يومًا ما إلى كل جوانب الحياة اليومية.
   `,
