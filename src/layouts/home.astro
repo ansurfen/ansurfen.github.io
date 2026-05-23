@@ -17,15 +17,14 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const { title, aboutTitle, techStackTitle, statisticTitle } =
-  getMessages(locale).home;
+const { aboutTitle, techStackTitle, statisticTitle } = getMessages(locale).home;
 
 const { profile, profileTexts, experiences, experienceTexts } = await import(
   "@/constants"
 );
 ---
 
-<Layout title={title}>
+<Layout home>
   <Navbar text={navLinkes[locale]} />
 
   <main

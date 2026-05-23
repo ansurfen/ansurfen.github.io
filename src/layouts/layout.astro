@@ -15,12 +15,15 @@ import { ClientRouter } from "astro:transitions";
 import Analytics from "@vercel/analytics/astro";
 
 import { SITE } from "@/lib/config";
+import { formatDocumentTitle } from "@/lib/utils";
 
 import "@/styles/global.css";
 import BackToTop from "@/components/back-to-top.astro";
 
 export interface Props {
   title?: string;
+  /** Home page: browser tab shows username only (no `title | username`). */
+  home?: boolean;
   author?: string;
   profile?: string;
   description?: string;
@@ -31,6 +34,7 @@ export interface Props {
 
 const {
   title = SITE.title,
+  home = false,
   author = SITE.author,
   profile = SITE.profile,
   description = SITE.desc,
@@ -39,12 +43,14 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.url),
 } = Astro.props;
 
+const documentTitle = formatDocumentTitle(title, { home });
+
 const socialImageURL = new URL(ogImage ?? SITE.ogImage, Astro.site).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  headline: `${title}`,
+  headline: documentTitle,
   image: `${socialImageURL}`,
   author: [
     {
@@ -91,15 +97,15 @@ const structuredData = {
     <meta name="generator" content={Astro.generator} />
 
     <!-- General Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
+    <title>{documentTitle}</title>
+    <meta name="title" content={documentTitle} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={pageType} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
     <meta property="og:url" content={canonicalURL} />
@@ -107,7 +113,7 @@ const structuredData = {
     <!-- X / Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
+    <meta property="twitter:title" content={documentTitle} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 

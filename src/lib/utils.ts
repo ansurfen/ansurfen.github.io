@@ -4,6 +4,7 @@ import { cva } from "class-variance-authority";
 import calculateReadingTime from 'reading-time';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { toString } from 'mdast-util-to-string';
+import { SITE } from "@/lib/config";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -55,3 +56,13 @@ export const getReadingTime = (text: string): string | undefined => {
     return undefined;
   }
 };
+
+/** Browser tab title: home → username only; other pages → `pageTitle | username`. */
+export function formatDocumentTitle(
+  pageTitle: string,
+  options?: { home?: boolean },
+): string {
+  const username = SITE.title;
+  if (options?.home) return username;
+  return `${pageTitle} | ${username}`;
+}
