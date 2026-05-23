@@ -12,13 +12,16 @@ import LinkedinIcon from "@/components/ui/icons/linkedin.astro";
 import DiscordIcon from "@/components/ui/icons/discord.astro";
 import type { ProfileTexts, Profile } from "@/lib/types";
 import { account } from "@/constants";
+import { getLocalePathByString, type Locale } from "@/lib/i18n";
 
 interface Props {
   info: Profile;
   text: ProfileTexts;
+  locale: Locale;
 }
 
-const { info, text } = Astro.props;
+const { info, text, locale } = Astro.props;
+const socialHref = getLocalePathByString(locale, "/social");
 ---
 
 <div class="screen-line-after relative flex items-center p-4 md:border-x">
@@ -149,7 +152,7 @@ const { info, text } = Astro.props;
       <Ellipsis className="size-4" />
       {text.more.key}
       <a
-        href="social"
+        href={socialHref}
         class="underline underline-offset-4"
       >
         {text.more.value}

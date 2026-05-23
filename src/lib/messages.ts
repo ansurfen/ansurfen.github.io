@@ -30,11 +30,23 @@ export interface VaultMessages {
   unlocking: string;
 }
 
+export interface SocialMessages {
+  title: string;
+  heading: string;
+  intro: string;
+  gitTitle: string;
+  blogTitle: string;
+  socialNetworksTitle: string;
+  videoTitle: string;
+  backAriaLabel: string;
+}
+
 export interface PageMessages {
   home: HomeMessages;
   projects: ProjectsMessages;
   articles: ArticlesMessages;
   vault: VaultMessages;
+  social: SocialMessages;
   categoryDescription: (category: string) => string;
   seriesDescription: (series: string) => string;
 }
@@ -68,6 +80,17 @@ export const messages: Record<Locale, PageMessages> = {
       unlock: "Unlock",
       unlocking: "Decrypting…",
     },
+    social: {
+      title: "Social",
+      heading: "Social Platforms",
+      intro:
+        "I'm active on various social platforms. You can find me on the following platforms:",
+      gitTitle: "Git",
+      blogTitle: "Blog",
+      socialNetworksTitle: "Social Networks",
+      videoTitle: "Video",
+      backAriaLabel: "Back link",
+    },
     categoryDescription: (category) =>
       `Exploring ${category} insights, lessons, and discoveries from my software engineering journey.`,
     seriesDescription: (series) =>
@@ -99,6 +122,16 @@ export const messages: Record<Locale, PageMessages> = {
       passphrasePlaceholder: "输入加密时设置的口令",
       unlock: "解锁",
       unlocking: "解密中…",
+    },
+    social: {
+      title: "社交",
+      heading: "社交平台",
+      intro: "我在多个社交平台上活跃，可以在以下平台找到我：",
+      gitTitle: "Git",
+      blogTitle: "博客",
+      socialNetworksTitle: "社交网络",
+      videoTitle: "视频",
+      backAriaLabel: "返回",
     },
     categoryDescription: (category) =>
       `探索 ${category} 的见解、教训和发现，从我的软件工程之旅中。`,
@@ -132,6 +165,16 @@ export const messages: Record<Locale, PageMessages> = {
       unlock: "解鎖",
       unlocking: "解密中…",
     },
+    social: {
+      title: "社交",
+      heading: "社交平台",
+      intro: "我在多個社交平台上活躍，可以在以下平台找到我：",
+      gitTitle: "Git",
+      blogTitle: "部落格",
+      socialNetworksTitle: "社交網路",
+      videoTitle: "影片",
+      backAriaLabel: "返回",
+    },
     categoryDescription: (category) =>
       `探索 ${category} 的见解、教训和发现，从我的软件工程之旅中。`,
     seriesDescription: (series) =>
@@ -164,6 +207,16 @@ export const messages: Record<Locale, PageMessages> = {
       unlock: "解除",
       unlocking: "復号中…",
     },
+    social: {
+      title: "ソーシャル",
+      heading: "ソーシャルプラットフォーム",
+      intro: "さまざまなソーシャルプラットフォームで活動しています。以下のプラットフォームで見つけられます：",
+      gitTitle: "Git",
+      blogTitle: "ブログ",
+      socialNetworksTitle: "ソーシャルネットワーク",
+      videoTitle: "動画",
+      backAriaLabel: "戻る",
+    },
     categoryDescription: (category) => `${category} に関する気づきや学びを探ります。`,
     seriesDescription: (series) =>
       `「${series}」 シリーズを深掘りし、私のソフトウェアエンジニアリングの旅から選び抜かれた内容をお届けします。`,
@@ -194,6 +247,17 @@ export const messages: Record<Locale, PageMessages> = {
       passphrasePlaceholder: "Phrase secrète utilisée lors du chiffrement",
       unlock: "Déverrouiller",
       unlocking: "Déchiffrement…",
+    },
+    social: {
+      title: "Réseaux sociaux",
+      heading: "Plateformes sociales",
+      intro:
+        "Je suis actif sur diverses plateformes sociales. Vous pouvez me trouver sur les plateformes suivantes :",
+      gitTitle: "Git",
+      blogTitle: "Blog",
+      socialNetworksTitle: "Réseaux sociaux",
+      videoTitle: "Vidéo",
+      backAriaLabel: "Retour",
     },
     categoryDescription: (category) =>
       `Explore les idées, les leçons et les découvertes liées à ${category}, de mon parcours en ingénierie de logiciels.`,
@@ -227,6 +291,17 @@ export const messages: Record<Locale, PageMessages> = {
       unlock: "Desbloquear",
       unlocking: "Descifrando…",
     },
+    social: {
+      title: "Social",
+      heading: "Plataformas sociales",
+      intro:
+        "Estoy activo en varias plataformas sociales. Puedes encontrarme en las siguientes plataformas:",
+      gitTitle: "Git",
+      blogTitle: "Blog",
+      socialNetworksTitle: "Redes sociales",
+      videoTitle: "Vídeo",
+      backAriaLabel: "Volver",
+    },
     categoryDescription: (category) =>
       `Explora la categoría ${category} de mi viaje en ingeniería de software.`,
     seriesDescription: (series) =>
@@ -258,6 +333,17 @@ export const messages: Record<Locale, PageMessages> = {
       passphrasePlaceholder: "Palavra-passe usada na encriptação",
       unlock: "Desbloquear",
       unlocking: "A desencriptar…",
+    },
+    social: {
+      title: "Social",
+      heading: "Plataformas sociais",
+      intro:
+        "Estou ativo em várias plataformas sociais. Pode encontrar-me nas seguintes plataformas:",
+      gitTitle: "Git",
+      blogTitle: "Blog",
+      socialNetworksTitle: "Redes sociais",
+      videoTitle: "Vídeo",
+      backAriaLabel: "Voltar",
     },
     categoryDescription: (category) =>
       `Explore as ideias, as lições e as descobertas relacionadas a ${category}, do meu percurso na engenharia de software.`,
@@ -291,6 +377,17 @@ export const messages: Record<Locale, PageMessages> = {
       unlock: "Разблокировать",
       unlocking: "Расшифровка…",
     },
+    social: {
+      title: "Соцсети",
+      heading: "Социальные платформы",
+      intro:
+        "Я активен на различных социальных платформах. Меня можно найти на следующих платформах:",
+      gitTitle: "Git",
+      blogTitle: "Блог",
+      socialNetworksTitle: "Социальные сети",
+      videoTitle: "Видео",
+      backAriaLabel: "Назад",
+    },
     categoryDescription: (category) =>
       `Исследуйте мои статьи и идеи о ${category} и их практические применения.`,
     seriesDescription: (series) =>
@@ -322,6 +419,16 @@ export const messages: Record<Locale, PageMessages> = {
       passphrasePlaceholder: "عبارة المرور المستخدمة عند التشفير",
       unlock: "فتح",
       unlocking: "جارٍ فك التشفير…",
+    },
+    social: {
+      title: "التواصل الاجتماعي",
+      heading: "منصات التواصل الاجتماعي",
+      intro: "أنا نشط على منصات تواصل اجتماعي متعددة. يمكنك العثور عليّ على المنصات التالية:",
+      gitTitle: "Git",
+      blogTitle: "مدونة",
+      socialNetworksTitle: "الشبكات الاجتماعية",
+      videoTitle: "فيديو",
+      backAriaLabel: "رجوع",
     },
     categoryDescription: (category) =>
       `استكشف آراء ودروس واكتشافاتي عن ${category} في رحلتي البرمجية`,

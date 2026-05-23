@@ -32,7 +32,7 @@ const { profile, profileTexts, experiences, experienceTexts } = await import(
     class="mx-auto min-h-[calc(100vh-120px)] max-w-3xl"
   >
     <Pattern className="h-14" />
-    <Profile info={profile[locale]} text={profileTexts[locale]} />
+    <Profile info={profile[locale]} text={profileTexts[locale]} locale={locale} />
     <Pattern />
     <About title={aboutTitle} about={profile[locale].about} />
     <Pattern />
